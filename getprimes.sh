@@ -6,47 +6,32 @@ int='^[0-9]+$' # Variable that specify what is only accept (only numbers)
 
 while true :
 do
-
     while :
     do
-        read -p 'Range start: ' lower # Prompt user for the start range
-        
+        read -p 'Range start: ' lower # Prompt user for the start range     
         if ! [[ $lower =~ $int ]] || [[ $lower -le 1 ]]; # Checks if the user input start range is an integer or is less than 1. If its not either of this keep propmting the user for a start range
             then echo "Invalid start range value. Start range must be an integer greater than 1. Please try again."
-
         else
             break
-
         fi
-
     done
 
 
     while :
     do
         read -p 'Range end: ' upper # Prompt user for the end range
-
         if ! [[ $upper =~ $int ]] || [[ $upper -le 1 ]]; # Checks if the user input end range is an integer or is less than 1. If its not either of this keep propmting the user for a end range
-            then echo "Invalid end range value. end range must be an integer greater than 1. Please try again."
-        
+            then echo "Invalid end range value. end range must be an integer greater than 1. Please try again."        
         else
-            break
-        
+            break        
         fi
-
     done
-
     num=($upper-$lower) # Find the variable between the given range and store it in the num variable
-
     if [[ $lower -gt $upper ]] || [[ $num -ge 1 ]]; # Checks if the lower range is greater than the upper range OR if num is greater than 1
         then echo "Invalid end range value, Start range must be an integer and at least 2 digits grate than the start range. Please try again."
-
     else
         break
-
     fi
-
-
 done
 
 
@@ -62,18 +47,13 @@ do
         then
             flag=1
             break
-
         fi
-
     done
-
 
     if [ $flag -eq 0 ] # Check if flag is equal to 0 store if not keep going in a loop
         then
         prime+=("["$a"]") # Gather the prime numbers and store it in the prime variable
-
     fi
-
 done
 
 count=${#prime[@]} # Count how much prime numbers there are in the given range
